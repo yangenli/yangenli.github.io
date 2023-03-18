@@ -13,3 +13,11 @@ Abstract: Many countries around the world reacted to the COVID-19 crisis by impo
 To bring up the container, navigate to the folder that contains the docker-compose.yml file and use
 
 ```
+docker-compose up -d --build
+```
+
+To bring it down, use
+
+```
+docker-compose down
+```
