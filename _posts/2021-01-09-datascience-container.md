@@ -34,7 +34,6 @@ services:
     container_name: datascience-demo
 
 ```
-
 To bring up the container, navigate to the folder that contains the docker-compose.yml file and use
 
 ```
