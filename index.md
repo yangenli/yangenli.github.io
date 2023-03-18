@@ -3,8 +3,9 @@ layout: page
 title: ""
 ---
 
-I'm an assistant professor in the [Linguistics Department](https://www.ling.upenn.edu) at the University of Pennsylvania and the director of the [Child Language Lab](http://childlanglab.com/). 
+I'm a finance Ph.D. student in the [Finance Department]([https://www.ling.upenn.edu](https://tippie.uiowa.edu/about/finance-department)) at the University of Iowa. 
 
-I teach graduate seminars in [psycholinguistics](/ling607) and [neurolinguistics](/neurolinguistics) and an undergraduate course in [language and the brain](/ling104). Occasionally, I also teach [LING 1](/ling001), Penn's Introduction to Linguistics.
+My main research areas are asset pricing, big data, machine learning. 
 
-This semester I'm teaching a new undergraduate course (with Colin Twomey): [Data Science for Studying Language and the Mind](/ling172).
+I will receive my Ph.D. in Finance from the University of Iowa  in 2026. I hold B.A. in Chemical Engineering and Technology from Beijing University of Chemical Technology and M.Sc. in Quantitative Financial Economics from Oklahoma State University. 
+
