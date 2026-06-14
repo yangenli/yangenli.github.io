@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yangen Li · 个人主页</title>
+  <meta name="description" content="Yangen Li 的个人主页 — 简介、项目作品与联系方式。" />
+  <style>
+    :root {
+      --bg: #0f1116;
+      --surface: #171a21;
+      --text: #e6e8ec;
+      --muted: #9aa3b2;
+      --accent: #5b8cff;
+      --border: #252a34;
+      --radius: 14px;
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f7f8fa;
+        --surface: #ffffff;
+        --text: #1a1d24;
+        --muted: #5b6473;
+        --accent: #2f6bff;
+        --border: #e6e8ec;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+        "Microsoft YaHei", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+    /* Hero */
+    header { padding: 96px 0 56px; }
+    .avatar {
+      width: 96px; height: 96px; border-radius: 50%;
+      object-fit: cover; border: 2px solid var(--border);
+      margin-bottom: 24px; background: var(--surface);
+    }
+    h1 { font-size: 2.4rem; letter-spacing: -0.02em; margin-bottom: 8px; }
+    .tagline { color: var(--muted); font-size: 1.15rem; }
+
+    /* Sections */
+    section { padding: 32px 0; border-top: 1px solid var(--border); }
+    h2 {
+      font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--muted); margin-bottom: 20px; font-weight: 600;
+    }
+    p { margin-bottom: 14px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Project cards */
+    .projects { display: grid; gap: 14px; }
+    .card {
+      display: block; padding: 18px 20px; background: var(--surface);
+      border: 1px solid var(--border); border-radius: var(--radius);
+      transition: transform .15s ease, border-color .15s ease;
+    }
+    .card:hover { transform: translateY(-2px); border-color: var(--accent); text-decoration: none; }
+    .card h3 { font-size: 1.05rem; margin-bottom: 4px; color: var(--text); }
+    .card p { color: var(--muted); font-size: 0.95rem; margin: 0; }
+
+    /* Links / contact */
+    .links { display: flex; flex-wrap: wrap; gap: 12px; }
+    .links a {
+      padding: 8px 16px; border: 1px solid var(--border);
+      border-radius: 999px; color: var(--text); font-size: 0.95rem;
+    }
+    .links a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+    footer { padding: 48px 0; color: var(--muted); font-size: 0.85rem; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- ===== 顶部:头像 + 名字 + 一句话简介 ===== -->
+    <header>
+      <img class="avatar" src="https://github.com/yangenli.png" alt="头像" />
+      <h1>Yangen Li</h1>
+      <p class="tagline">一句话介绍你自己 —— 比如:研究者 / 开发者,关注 XXX。</p>
+    </header>
+
+    <!-- ===== 关于我 ===== -->
+    <section id="about">
+      <h2>关于我</h2>
+      <p>
+        在这里写一段自我介绍:你是谁、在做什么、感兴趣的方向。
+        可以提到你的研究、技能、正在学习的东西,或者任何你想让访客了解的内容。
+      </p>
+    </section>
+
+    <!-- ===== 项目 / 作品 ===== -->
+    <section id="projects">
+      <h2>项目作品</h2>
+      <div class="projects">
+        <a class="card" href="https://github.com/yangenli" target="_blank" rel="noopener">
+          <h3>项目名称一</h3>
+          <p>一句话说明这个项目是做什么的。</p>
+        </a>
+        <a class="card" href="https://github.com/yangenli" target="_blank" rel="noopener">
+          <h3>项目名称二</h3>
+          <p>一句话说明这个项目是做什么的。</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===== 联系方式 ===== -->
+    <section id="contact">
+      <h2>联系方式</h2>
+      <div class="links">
+        <a href="https://github.com/yangenli" target="_blank" rel="noopener">GitHub</a>
+        <a href="mailto:allenscs200@gmail.com">Email</a>
+        <!-- 想加更多就复制下面这行,改掉链接和文字
+        <a href="https://你的链接" target="_blank" rel="noopener">LinkedIn</a>
+        -->
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Yangen Li · Built with HTML &amp; CSS
+    </footer>
+
+  </div>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
