@@ -41,6 +41,10 @@ git push
 - 已用 `gh` 登录 GitHub 账号 `yangenli`,git push 可直接使用
 - 本文件夹在 OneDrive 中会自动云端备份;注意**不要在 OneDrive 网页端去删改 `.git` 文件夹**,以免同步冲突
 
+## 📌 待办 / 计划
+- [ ] 上传 CV:把 CV 文件(如 `cv.pdf`)放进本文件夹,然后在 `index.html` 的 Contact 区加一个「CV / Resume」链接指向它(在线地址 `https://yangenli.github.io/cv.pdf`),再 push 发布
+- [ ] 把主页占位内容(tagline / About / Projects)换成真实信息
+
 ## 💡 给未来的 Claude / 自己的提示
 - 想新建**别的**网站/项目 → 另建文件夹 + 另建 GitHub 仓库,别混进这里
 - 本地文件夹搬家不影响线上网址,网址永远是 https://yangenli.github.io
