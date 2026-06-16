@@ -47,6 +47,15 @@
     h1 { font-size: 2.4rem; letter-spacing: -0.02em; margin-bottom: 10px; }
     .tagline { color: var(--muted); font-size: 1.15rem; }
     .tagline strong { color: var(--text); font-weight: 600; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+    .btn {
+      padding: 9px 18px; border-radius: 999px; font-size: 0.95rem; font-weight: 500;
+      border: 1px solid var(--border);
+    }
+    .btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .btn.primary:hover { text-decoration: none; opacity: 0.9; }
+    .btn.ghost { color: var(--text); }
+    .btn.ghost:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
 
     /* Sections */
     section { padding: 32px 0; border-top: 1px solid var(--border); }
@@ -103,6 +112,11 @@
         <strong>machine-learning</strong> and <strong>large-language-model</strong>
         methods for financial markets.
       </p>
+      <div class="hero-actions">
+        <a class="btn primary" href="Yangen_Li_CV.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+        <a class="btn ghost" href="https://github.com/yangenli" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn ghost" href="mailto:yangen-li@uiowa.edu">Email</a>
+      </div>
     </header>
 
     <!-- ===== About ===== -->
@@ -175,6 +189,7 @@
       <div class="links">
         <a href="mailto:yangen-li@uiowa.edu">yangen-li@uiowa.edu</a>
         <a href="https://github.com/yangenli" target="_blank" rel="noopener">GitHub</a>
+        <a href="Yangen_Li_CV.pdf" target="_blank" rel="noopener">CV (PDF)</a>
       </div>
     </section>
 
