@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Yangen Li</title>
-  <meta name="description" content="Personal homepage of Yangen Li — about, projects, and contact." />
+  <meta name="description" content="Yangen Li — Ph.D. candidate in Finance at the University of Iowa applying machine learning and large language models to financial markets." />
   <style>
     :root {
       --bg: #0f1116;
@@ -44,8 +44,9 @@
       object-fit: cover; border: 2px solid var(--border);
       margin-bottom: 24px; background: var(--surface);
     }
-    h1 { font-size: 2.4rem; letter-spacing: -0.02em; margin-bottom: 8px; }
+    h1 { font-size: 2.4rem; letter-spacing: -0.02em; margin-bottom: 10px; }
     .tagline { color: var(--muted); font-size: 1.15rem; }
+    .tagline strong { color: var(--text); font-weight: 600; }
 
     /* Sections */
     section { padding: 32px 0; border-top: 1px solid var(--border); }
@@ -57,16 +58,27 @@
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    /* Project cards */
+    /* Interest tags */
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tags span {
+      padding: 6px 14px; background: var(--surface); border: 1px solid var(--border);
+      border-radius: 999px; color: var(--text); font-size: 0.88rem;
+    }
+    .tags span.lead { border-color: var(--accent); color: var(--accent); }
+
+    /* Research cards */
     .projects { display: grid; gap: 14px; }
     .card {
       display: block; padding: 18px 20px; background: var(--surface);
       border: 1px solid var(--border); border-radius: var(--radius);
-      transition: transform .15s ease, border-color .15s ease;
     }
-    .card:hover { transform: translateY(-2px); border-color: var(--accent); text-decoration: none; }
-    .card h3 { font-size: 1.05rem; margin-bottom: 4px; color: var(--text); }
+    .card .label {
+      display: inline-block; font-size: 0.72rem; text-transform: uppercase;
+      letter-spacing: 0.06em; color: var(--accent); margin-bottom: 6px; font-weight: 600;
+    }
+    .card h3 { font-size: 1.05rem; margin-bottom: 6px; color: var(--text); line-height: 1.35; }
     .card p { color: var(--muted); font-size: 0.95rem; margin: 0; }
+    .card .authors { font-size: 0.85rem; margin-top: 6px; color: var(--muted); }
 
     /* Links / contact */
     .links { display: flex; flex-wrap: wrap; gap: 12px; }
@@ -82,52 +94,92 @@
 <body>
   <div class="wrap">
 
-    <!-- ===== Hero: avatar + name + one-line intro ===== -->
+    <!-- ===== Hero ===== -->
     <header>
-      <img class="avatar" src="https://github.com/yangenli.png" alt="Avatar" />
+      <img class="avatar" src="https://github.com/yangenli.png" alt="Yangen Li" />
       <h1>Yangen Li</h1>
-      <p class="tagline">A one-line introduction about yourself — e.g. Researcher / Developer focused on XXX.</p>
+      <p class="tagline">
+        Ph.D. Candidate in Finance, University of Iowa. I build
+        <strong>machine-learning</strong> and <strong>large-language-model</strong>
+        methods for financial markets.
+      </p>
     </header>
 
     <!-- ===== About ===== -->
     <section id="about">
       <h2>About</h2>
       <p>
-        Write a short introduction here: who you are, what you do, and what you're
-        interested in. You can mention your research, skills, what you're currently
-        learning, or anything you'd like visitors to know.
+        I am a Ph.D. candidate in Finance at the University of Iowa's Tippie College
+        of Business, on the academic job market in 2026&ndash;2027. My research sits at
+        the intersection of <strong>artificial intelligence and empirical finance</strong>:
+        I develop deep-learning and large-language-model methods to detect hidden corporate
+        fraud, predict stock returns, and measure managerial behavior from text at scale.
       </p>
+      <div class="tags">
+        <span class="lead">Machine Learning in Finance</span>
+        <span class="lead">Large Language Models</span>
+        <span>Empirical Asset Pricing</span>
+        <span>Return Predictability</span>
+        <span>Textual Analysis</span>
+      </div>
     </section>
 
-    <!-- ===== Projects ===== -->
-    <section id="projects">
-      <h2>Projects</h2>
+    <!-- ===== Research ===== -->
+    <section id="research">
+      <h2>Research</h2>
       <div class="projects">
-        <a class="card" href="https://github.com/yangenli" target="_blank" rel="noopener">
-          <h3>Project One</h3>
-          <p>A one-line description of what this project does.</p>
-        </a>
-        <a class="card" href="https://github.com/yangenli" target="_blank" rel="noopener">
-          <h3>Project Two</h3>
-          <p>A one-line description of what this project does.</p>
-        </a>
+
+        <div class="card">
+          <span class="label">Job Market Paper</span>
+          <h3>Future Proves Past: Detecting Hidden Fraud under Imperfect Enforcement Labels</h3>
+          <p>A deep convolutional neural network that learns from future accounting outcomes
+             to uncover economically meaningful accounting fraud beyond the SEC's enforcement record.</p>
+          <p class="authors">with C. Wei Li, Yuxuan Li, and Anand M. Vijh</p>
+        </div>
+
+        <div class="card">
+          <span class="label">Working Paper</span>
+          <h3>Listening to History Rhymes: Pattern Recurrence and Return Predictability in Stock Markets</h3>
+          <p>Using the Matrix Profile to detect recurrent price patterns and machine-learning
+             models to turn them into out-of-sample return forecasts.</p>
+          <p class="authors">with C. Wei Li</p>
+        </div>
+
+        <div class="card">
+          <span class="label">Working Paper</span>
+          <h3>CEO Individualism and the Distribution of Performance Risk</h3>
+          <p>Measuring CEO individualism from earnings-call speech with transformer embeddings
+             and a fine-tuned (QLoRA) large language model, and linking it to how firms allocate
+             downside risk to workers.</p>
+          <p class="authors">solo-authored</p>
+        </div>
+
+        <div class="card">
+          <span class="label">Working Paper</span>
+          <h3>When &ldquo;Milliseconds&rdquo; Matter: The Real Effects of High-Frequency Trading</h3>
+          <p>How high-frequency trading reshapes corporate investment and external financing,
+             identified from a high-speed market-data feed and exchange co-location rollouts.</p>
+          <p class="authors">with Wesley Deng, Bo Hu, and Amy Kwan</p>
+        </div>
+
       </div>
+      <p style="margin-top:16px; color:var(--muted); font-size:0.95rem;">
+        Work in progress on frequency-domain asset pricing and LLM-based analysis of
+        executive contracts and compensation governance.
+      </p>
     </section>
 
     <!-- ===== Contact ===== -->
     <section id="contact">
       <h2>Contact</h2>
       <div class="links">
+        <a href="mailto:yangen-li@uiowa.edu">yangen-li@uiowa.edu</a>
         <a href="https://github.com/yangenli" target="_blank" rel="noopener">GitHub</a>
-        <a href="mailto:allenscs200@gmail.com">Email</a>
-        <!-- To add more, copy the line below and change the link and label
-        <a href="https://your-link" target="_blank" rel="noopener">LinkedIn</a>
-        -->
       </div>
     </section>
 
     <footer>
-      © <span id="year"></span> Yangen Li · Built with HTML &amp; CSS
+      © <span id="year"></span> Yangen Li · University of Iowa
     </footer>
 
   </div>
