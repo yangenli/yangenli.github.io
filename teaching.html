@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Teaching · Yangen Li</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{ --bg:#ffffff; --card:#ffffff; --ink:#16181d; --muted:#646b76; --soft:#9298a3;
+    --line:#ececef; --line2:#dfe1e6; --robot:#c4cad8;
+    --sans:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.6;padding:34px 18px;min-height:100vh;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+  .grid{max-width:920px;margin:0 auto;display:grid;grid-template-columns:repeat(6,1fr);gap:16px;}
+  .cell{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;}
+  .cell:hover{border-color:var(--line2)}
+  .intro{grid-column:span 6;display:flex;align-items:center;justify-content:space-between;gap:22px;overflow:hidden}
+  .intro .who{display:flex;gap:20px;align-items:center}
+  .intro .avatar{width:92px;height:92px;border-radius:20px;flex:0 0 auto;background:var(--ink);
+    display:flex;align-items:center;justify-content:center}
+  .intro .avatar svg{width:58px;height:58px;display:block}
+  .intro h1{font-size:2.1rem;font-weight:700;letter-spacing:-.025em;color:var(--ink)}
+  .intro .role{color:var(--muted);margin-top:5px;font-size:.98rem}
+  .back{font-size:.9rem;font-weight:600;color:var(--ink);text-decoration:none;border:1px solid var(--line2);
+    border-radius:11px;padding:10px 18px;white-space:nowrap}
+  .back:hover{border-color:var(--ink)}
+  .label{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--soft);margin-bottom:13px}
+  .course{grid-column:span 3}
+  .course h3{font-size:1.05rem;font-weight:600;letter-spacing:-.01em;line-height:1.35;margin-bottom:8px;color:var(--ink)}
+  .course p{color:var(--muted);font-size:.94rem}
+  .meta{font-size:.86rem;color:var(--soft);margin-top:11px}
+  .wide{grid-column:span 6;border-color:var(--line2)}
+  .wide h3{font-size:1.05rem;font-weight:600;letter-spacing:-.01em;margin-bottom:8px;color:var(--ink)}
+  .wide p{color:var(--muted);font-size:.94rem}
+  .wide p + p{margin-top:8px}
+  .quote{grid-column:span 3;display:flex;flex-direction:column;justify-content:space-between}
+  .quote p{color:#33373f;font-size:.93rem;font-style:italic}
+  .quote .src{font-size:.78rem;color:var(--soft);margin-top:12px;font-style:normal;letter-spacing:.01em}
+  .foot{grid-column:span 6;color:var(--soft);font-size:.82rem;text-align:center;padding:8px 0 0}
+  @media(max-width:680px){.course,.quote,.intro{grid-column:span 6}}
+</style>
+</head>
+<body>
+  <div class="grid">
+
+    <div class="cell intro">
+      <div class="who">
+        <div class="avatar" aria-hidden="true">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <g fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="50" y1="20" x2="50" y2="10"/>
+              <circle cx="50" cy="7" r="4" fill="#ffffff" stroke="none"/>
+              <rect x="22" y="20" width="56" height="48" rx="14"/>
+              <rect x="14" y="34" width="8" height="18" rx="3"/>
+              <rect x="78" y="34" width="8" height="18" rx="3"/>
+              <circle cx="40" cy="42" r="6.5" fill="#ffffff" stroke="none"/>
+              <circle cx="60" cy="42" r="6.5" fill="#ffffff" stroke="none"/>
+              <path d="M38 56 H62"/>
+              <line x1="44" y1="68" x2="44" y2="76"/>
+              <line x1="56" y1="68" x2="56" y2="76"/>
+            </g>
+          </svg>
+        </div>
+        <div><h1>Teaching</h1>
+          <div class="role">Yangen Li · University of Iowa, Tippie College of Business</div></div>
+      </div>
+      <a class="back" href="index.html">&larr; Home</a>
+    </div>
+
+    <div class="cell course">
+      <div class="label">Stand-alone Instructor</div>
+      <h3>FIN:3200 Investment Management</h3>
+      <p>Undergraduate elective covering portfolio theory, asset pricing, market efficiency, and
+         security valuation. Anchored by a semester-long live portfolio project: each student
+         manages a real-data portfolio and tracks Sharpe ratios, beta, and alpha on a
+         performance tracker I built for the course.</p>
+      <div class="meta">University of Iowa &middot; Summer 2025 &amp; Summer 2026</div>
+    </div>
+
+    <div class="cell course">
+      <div class="label">Stand-alone Instructor</div>
+      <h3>Introductory Financial Management</h3>
+      <p>Core undergraduate finance course: time value of money, capital budgeting, risk and
+         return, and the fundamentals of corporate financing decisions.</p>
+      <div class="meta">University of Iowa &middot; Spring 2024</div>
+    </div>
+
+    <div class="cell wide">
+      <div class="label">In the Classroom</div>
+      <h3>Real data, real decisions</h3>
+      <p>My courses are built around applying theory to live markets. Students construct and manage
+         their own portfolios, watch diversification and risk-adjusted performance play out against
+         current market data, and connect every metric &mdash; expected return, volatility, beta, the
+         Sharpe and Treynor measures, alpha &mdash; to positions they chose themselves.</p>
+      <p>I bring my research toolkit into teaching: a custom-built interactive portfolio tracker,
+         Python demonstrations of the tools professionals actually use, and open-book assessments
+         that reward understanding over memorization.</p>
+    </div>
+
+    <div class="cell wide" style="border-color:var(--line)">
+      <div class="label">Student Voices</div>
+      <p style="font-size:.9rem">Selected comments from end-of-course feedback, FIN:3200 Investment Management.</p>
+    </div>
+
+    <div class="cell quote">
+      <p>&ldquo;Instead of abstract formulas, we watched Sharpe ratios, beta, and market efficiency
+         play out against our own picks in real time. That made risk-adjusted return and statistical
+         significance feel concrete, not theoretical.&rdquo;</p>
+      <div class="src">Summer 2026</div>
+    </div>
+    <div class="cell quote">
+      <p>&ldquo;You can tell you love what you do, and that makes the students want to listen
+         to you!&rdquo;</p>
+      <div class="src">Summer 2026</div>
+    </div>
+    <div class="cell quote">
+      <p>&ldquo;Have the students build a portfolio &mdash; that was one of my favorite things I have
+         done during my time here at Iowa.&rdquo;</p>
+      <div class="src">Summer 2026</div>
+    </div>
+    <div class="cell quote">
+      <p>&ldquo;Seeing my portfolio&rsquo;s performance through the graphs and scoring made me much
+         more engaged and helped concepts like diversification, risk, valuation, and market pricing
+         actually click.&rdquo;</p>
+      <div class="src">Summer 2026</div>
+    </div>
+    <div class="cell quote">
+      <p>&ldquo;I really appreciate how you incorporate Python and show us real-world programs
+         we&rsquo;ll actually use in our careers. I feel way more confident about entering the
+         workforce knowing I&rsquo;ve worked with tools that professionals actually use every
+         day.&rdquo;</p>
+      <div class="src">Summer 2025</div>
+    </div>
+    <div class="cell quote">
+      <p>&ldquo;The video lectures were one of the strongest parts of the course. You broke down
+         complex concepts in a way that felt manageable.&rdquo;</p>
+      <div class="src">Summer 2025</div>
+    </div>
+    <div class="cell quote">
+      <p>&ldquo;Even though this was an online summer class, I still learned a lot thanks to your
+         clear communication and willingness to help. I always felt like I had what I needed to
+         succeed.&rdquo;</p>
+      <div class="src">Summer 2025</div>
+    </div>
+    <div class="cell quote">
+      <p>&ldquo;The examples, practical questions and discussions made it easy to understand
+         complicated terms such as valuation, risk and portfolio management.&rdquo;</p>
+      <div class="src">Summer 2026</div>
+    </div>
+    <div class="cell quote">
+      <p>&ldquo;I found the material engaging and well structured, and I never felt overwhelmed.
+         I would recommend the course to any student with an interest in investment
+         management.&rdquo;</p>
+      <div class="src">Summer 2026</div>
+    </div>
+
+    <div class="cell course">
+      <div class="label">Teaching Assistant</div>
+      <h3>Introductory Financial Management</h3>
+      <p>Led three weekly discussion sections, designing practice sessions to reinforce
+         lecture material.</p>
+      <div class="meta">University of Iowa &middot; Spring 2023</div>
+    </div>
+
+    <div class="cell course">
+      <div class="label">Evaluations</div>
+      <h3>Course evaluations</h3>
+      <p>Full SPOT teaching evaluations are available upon request.</p>
+      <div class="meta"><a href="mailto:yangen-li@uiowa.edu" style="color:var(--muted)">yangen-li@uiowa.edu</a></div>
+    </div>
+
+    <div class="foot">&copy; <span id="y"></span> Yangen Li · University of Iowa</div>
+  </div>
+  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+</body>
+</html>
