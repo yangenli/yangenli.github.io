@@ -1,0 +1,95 @@
+/* Shared styles — yangenli.github.io */
+:root{
+  --bg:#ffffff; --card:#ffffff; --ink:#16181d; --muted:#646b76; --soft:#9298a3;
+  --line:#ececef; --line2:#dfe1e6; --robot:#c4cad8;
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.6;padding:34px 18px;min-height:100vh;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+.grid{max-width:920px;margin:0 auto;display:grid;grid-template-columns:repeat(6,1fr);gap:16px;}
+.cell{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;}
+.cell:hover{border-color:var(--line2)}
+
+/* ---- nav ---- */
+.nav{grid-column:span 6;display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:0 4px}
+.nav a{font-size:.88rem;font-weight:500;color:var(--muted);text-decoration:none;
+  border:1px solid transparent;border-radius:999px;padding:7px 16px;transition:color .15s,border-color .15s,background .15s}
+.nav a:hover{color:var(--ink);border-color:var(--line2)}
+.nav a.active{color:var(--ink);font-weight:600;background:#f6f6f8;border-color:var(--line2)}
+.nav .spacer{flex:1}
+.nav .ext{font-size:.85rem;color:var(--soft);text-decoration:none;border-radius:999px;padding:7px 14px}
+.nav .ext:hover{color:var(--ink)}
+
+/* ---- hero ---- */
+.intro{grid-column:span 6;display:flex;align-items:center;justify-content:space-between;gap:24px;overflow:hidden}
+.intro .who{display:flex;gap:22px;align-items:center;min-width:0}
+.intro .photo{width:132px;height:176px;border-radius:16px;flex:0 0 auto;object-fit:cover;object-position:50% 12%;
+  border:1px solid var(--line2);background:#f3f4f6;display:block}
+.intro .avatar{width:92px;height:92px;border-radius:20px;flex:0 0 auto;background:var(--ink);
+  display:flex;align-items:center;justify-content:center}
+.intro .avatar svg{width:58px;height:58px;display:block}
+.intro h1{font-size:2.1rem;font-weight:700;letter-spacing:-.025em;color:var(--ink)}
+.intro .role{color:var(--muted);margin-top:5px;font-size:.98rem}
+.intro .where{color:var(--soft);margin-top:2px;font-size:.92rem}
+.intro .badge{display:inline-block;margin-top:12px;font-size:.76rem;font-weight:500;color:var(--muted);
+  border:1px solid var(--line2);border-radius:999px;padding:4px 13px}
+.intro .robot{flex:0 0 auto;width:300px;margin:-14px -10px -26px 0}
+.intro .robot svg{width:100%;height:auto;display:block}
+@media(max-width:860px){.intro .robot{display:none}}
+
+/* ---- generic blocks ---- */
+.label{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--soft);margin-bottom:13px}
+.about{grid-column:span 4}
+.about p{font-size:1.04rem;color:#33373f}
+.about p + p{margin-top:11px}
+.about .em{font-weight:600;color:var(--ink)}
+.stack{grid-column:span 2;display:flex;flex-direction:column;gap:9px}
+.chip{font-size:.86rem;font-weight:500;padding:8px 13px;border:1px solid var(--line);border-radius:9px;color:#3b404a;background:#fafafb}
+.chip.hot{font-weight:600;color:var(--ink);border-color:var(--line2)}
+
+/* ---- papers ---- */
+.jmp{grid-column:span 6;border-color:var(--line2)}
+.paper{grid-column:span 3}
+.paper h3,.jmp h3{font-size:1.05rem;font-weight:600;letter-spacing:-.01em;line-height:1.35;margin-bottom:8px;color:var(--ink)}
+.paper p,.jmp p{color:var(--muted);font-size:.94rem}
+.paper p + p,.jmp p + p{margin-top:8px}
+.auth{font-size:.86rem;color:var(--soft);margin-top:11px}
+.conf{font-size:.78rem;color:var(--soft);margin-top:6px;letter-spacing:.01em}
+
+/* ---- wide text card ---- */
+.wide{grid-column:span 6}
+.wide h3{font-size:1.05rem;font-weight:600;letter-spacing:-.01em;margin-bottom:8px;color:var(--ink)}
+.wide p{color:var(--muted);font-size:.94rem}
+.wide p + p{margin-top:8px}
+
+/* ---- teaching ---- */
+.course{grid-column:span 3}
+.course h3{font-size:1.05rem;font-weight:600;letter-spacing:-.01em;line-height:1.35;margin-bottom:8px;color:var(--ink)}
+.course p{color:var(--muted);font-size:.94rem}
+.meta{font-size:.86rem;color:var(--soft);margin-top:11px}
+.quote{grid-column:span 3;display:flex;flex-direction:column;justify-content:space-between}
+.quote p{color:#33373f;font-size:.93rem;font-style:italic}
+.quote .src{font-size:.78rem;color:var(--soft);margin-top:12px;font-style:normal;letter-spacing:.01em}
+
+/* ---- contact ---- */
+.contact{grid-column:span 6;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.contact a.cv{font-size:.9rem;font-weight:600;color:#fff;text-decoration:none;
+  background:var(--ink);border-radius:11px;padding:11px 20px}
+.contact a.cv:hover{background:#000}
+.contact a.ghost{background:#fff;color:var(--ink);border:1px solid var(--line2)}
+.contact a.ghost:hover{background:#fff;border-color:var(--ink)}
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;
+  border:1px solid var(--line);border-radius:11px;color:var(--ink);transition:border-color .15s,transform .15s}
+.icon-btn:hover{border-color:var(--ink);transform:translateY(-2px)}
+.icon-btn svg{width:21px;height:21px}
+
+.foot{grid-column:span 6;color:var(--soft);font-size:.82rem;text-align:center;padding:8px 0 0}
+
+@media(max-width:680px){
+  .about,.stack,.paper,.intro,.course,.quote{grid-column:span 6}
+  .intro{align-items:flex-start}
+  .intro .who{gap:16px}
+  .intro .photo{width:104px;height:138px}
+  .intro h1{font-size:1.8rem}
+}

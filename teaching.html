@@ -3,47 +3,22 @@
 <head>
 <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Teaching · Yangen Li</title>
+<meta name="description" content="Teaching by Yangen Li — Investment Management and Introductory Financial Management at the University of Iowa." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{ --bg:#ffffff; --card:#ffffff; --ink:#16181d; --muted:#646b76; --soft:#9298a3;
-    --line:#ececef; --line2:#dfe1e6; --robot:#c4cad8;
-    --sans:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.6;padding:34px 18px;min-height:100vh;
-    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
-  .grid{max-width:920px;margin:0 auto;display:grid;grid-template-columns:repeat(6,1fr);gap:16px;}
-  .cell{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;}
-  .cell:hover{border-color:var(--line2)}
-  .intro{grid-column:span 6;display:flex;align-items:center;justify-content:space-between;gap:22px;overflow:hidden}
-  .intro .who{display:flex;gap:20px;align-items:center}
-  .intro .avatar{width:92px;height:92px;border-radius:20px;flex:0 0 auto;background:var(--ink);
-    display:flex;align-items:center;justify-content:center}
-  .intro .avatar svg{width:58px;height:58px;display:block}
-  .intro h1{font-size:2.1rem;font-weight:700;letter-spacing:-.025em;color:var(--ink)}
-  .intro .role{color:var(--muted);margin-top:5px;font-size:.98rem}
-  .back{font-size:.9rem;font-weight:600;color:var(--ink);text-decoration:none;border:1px solid var(--line2);
-    border-radius:11px;padding:10px 18px;white-space:nowrap}
-  .back:hover{border-color:var(--ink)}
-  .label{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--soft);margin-bottom:13px}
-  .course{grid-column:span 3}
-  .course h3{font-size:1.05rem;font-weight:600;letter-spacing:-.01em;line-height:1.35;margin-bottom:8px;color:var(--ink)}
-  .course p{color:var(--muted);font-size:.94rem}
-  .meta{font-size:.86rem;color:var(--soft);margin-top:11px}
-  .wide{grid-column:span 6;border-color:var(--line2)}
-  .wide h3{font-size:1.05rem;font-weight:600;letter-spacing:-.01em;margin-bottom:8px;color:var(--ink)}
-  .wide p{color:var(--muted);font-size:.94rem}
-  .wide p + p{margin-top:8px}
-  .quote{grid-column:span 3;display:flex;flex-direction:column;justify-content:space-between}
-  .quote p{color:#33373f;font-size:.93rem;font-style:italic}
-  .quote .src{font-size:.78rem;color:var(--soft);margin-top:12px;font-style:normal;letter-spacing:.01em}
-  .foot{grid-column:span 6;color:var(--soft);font-size:.82rem;text-align:center;padding:8px 0 0}
-  @media(max-width:680px){.course,.quote,.intro{grid-column:span 6}}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="grid">
+
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="teaching.html" class="active">Teaching</a>
+      <span class="spacer"></span>
+      <a class="ext" href="Yangen_Li_CV.pdf">CV&nbsp;(PDF)</a>
+    </nav>
 
     <div class="cell intro">
       <div class="who">
@@ -64,9 +39,10 @@
           </svg>
         </div>
         <div><h1>Teaching</h1>
-          <div class="role">Yangen Li · University of Iowa, Tippie College of Business</div></div>
+          <div class="role">Yangen Li · Ph.D. Candidate in Finance</div>
+          <div class="where">Tippie College of Business, University of Iowa</div>
+          <span class="badge">Stand-alone instructor since 2024</span></div>
       </div>
-      <a class="back" href="index.html">&larr; Home</a>
     </div>
 
     <div class="cell course">
@@ -87,7 +63,7 @@
       <div class="meta">University of Iowa &middot; Spring 2024</div>
     </div>
 
-    <div class="cell wide">
+    <div class="cell wide" style="border-color:var(--line2)">
       <div class="label">In the Classroom</div>
       <h3>Real data, real decisions</h3>
       <p>My courses are built around applying theory to live markets. Students construct and manage
@@ -99,7 +75,7 @@
          that reward understanding over memorization.</p>
     </div>
 
-    <div class="cell wide" style="border-color:var(--line)">
+    <div class="cell wide">
       <div class="label">Student Voices</div>
       <p style="font-size:.9rem">Selected comments from end-of-course feedback, FIN:3200 Investment Management.</p>
     </div>
@@ -150,6 +126,18 @@
       <div class="src">Summer 2026</div>
     </div>
 
+    <div class="cell contact">
+      <a class="cv" href="Yangen_Li_CV.pdf">CV (PDF)</a>
+      <a class="cv ghost" href="index.html">Home</a>
+      <a class="cv ghost" href="research.html">Research</a>
+      <a class="icon-btn" href="mailto:yangen-li@uiowa.edu" title="Email" aria-label="Email">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg>
+      </a>
+      <a class="icon-btn" href="https://github.com/yangenli" title="GitHub" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.8a10.2 10.2 0 0 0-3.23 19.88c.51.1.7-.22.7-.49l-.01-1.9c-2.84.62-3.44-1.2-3.44-1.2-.47-1.18-1.13-1.5-1.13-1.5-.93-.63.07-.62.07-.62 1.02.07 1.56 1.05 1.56 1.05.91 1.56 2.39 1.11 2.97.85.09-.66.36-1.11.64-1.37-2.27-.26-4.66-1.14-4.66-5.05 0-1.12.4-2.03 1.05-2.74-.1-.26-.46-1.3.1-2.7 0 0 .86-.27 2.8 1.04a9.7 9.7 0 0 1 5.1 0c1.94-1.31 2.8-1.04 2.8-1.04.56 1.4.2 2.44.1 2.7.66.71 1.05 1.62 1.05 2.74 0 3.92-2.39 4.78-4.67 5.04.37.32.69.94.69 1.9l-.01 2.82c0 .27.18.6.7.49A10.2 10.2 0 0 0 12 1.8z"/></svg>
+      </a>
+    </div>
     <div class="foot">&copy; <span id="y"></span> Yangen Li · University of Iowa</div>
   </div>
   <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
