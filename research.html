@@ -41,24 +41,25 @@
         <div><h1>Research</h1>
           <div class="role">Yangen Li · Ph.D. Candidate in Finance</div>
           <div class="where">Tippie College of Business, University of Iowa</div>
-          <span class="badge">Machine Learning &middot; LLMs &middot; Asset Pricing &middot; Corporate Finance</span></div>
+          <span class="badge">Financial misconduct &middot; Executive contracting &middot; ML/LLM measurement &middot; Asset pricing</span></div>
       </div>
     </div>
 
     <div class="cell jmp">
       <div class="label">Job Market Paper</div>
       <h3>Future Proves Past: Detecting Hidden Fraud under Imperfect Enforcement Labels</h3>
-      <p>Accounting-fraud detection faces a two-sided problem created by imperfect enforcement labels. Models trained
-         on SEC enforcement actions may learn the enforcement process rather than the fraud process, because observed
-         AAER cases are only a selectively revealed subset of fraudulent firms; and if labels are incomplete,
-         classification accuracy cannot tell whether a model finds hidden fraud or merely reproduces enforcement
-         patterns.</p>
-      <p>We address both with a <em>future-proves-past</em> framework that folds future accounting outcomes into the
-         supervisory signal, implemented as a deep convolutional neural network trained on multi-year accounting panels
-         with soft labels. The model holds up on traditional SEC-labelled benchmarks, but its main contribution is
-         identifying economically meaningful hidden fraud outside the enforcement set: high-risk firms show higher
-         future equity issuance, substantial post-issuance underperformance, and significant negative abnormal returns,
-         while independently verified clean populations receive systematically lower fraud rankings.</p>
+      <p>SEC enforcement labels are selective and incomplete proxies for the latent fraud they are meant to measure.
+         That mismatch creates two problems: a model trained on them may learn the enforcement process rather than the
+         fraud process, and accuracy measured against them cannot reveal whether a model detects the fraud enforcement
+         misses.</p>
+      <p>We address both with a <em>future-proves-past</em> design. Because accounting distortions eventually reverse,
+         future accounting outcomes modestly refine the training signal into soft labels; we train a convolutional
+         neural network on multi-year accounting panels with these labels and validate it entirely outside the
+         enforcement set. Out of sample over 2000&ndash;2019, flagged firms complete seasoned equity offerings at nearly
+         three times the base rate and earn large negative post-issuance abnormal returns, a long&ndash;short portfolio
+         earns significant factor-adjusted alpha, and externally screened populations &mdash; post-scrutiny Arthur
+         Andersen clients, bank-monitored borrowers &mdash; are systematically avoided. An identically specified network
+         trained on the enforcement label reproduces none of this: the training target drives the difference.</p>
       <div class="auth">with C. Wei Li, Yuxuan Li, and Anand M. Vijh</div>
       <div class="conf">University of Iowa Finance Brown Bag Seminar 2026</div>
     </div>
@@ -66,16 +67,18 @@
     <div class="cell wide">
       <div class="label">Working Paper</div>
       <h3>Listening to History Rhymes: Pattern Recurrence and Return Predictability in Stock Markets</h3>
-      <p>We embed rolling 60-day return segments of U.S. equities from 1970 to 2024 &mdash; roughly 1.32 million
+      <p>We embed rolling 60-day return segments of U.S. equities from 1970 to 2025 &mdash; roughly 1.32 million
          segments &mdash; into a geometric space of standardized trajectories, extending the exhaustive
          pairwise-comparison principle of the Matrix Profile to the full cross-section. Comparing each segment&rsquo;s
          nearest neighbors against a bootstrap random-walk benchmark yields the <em>Pattern Distance Ratio</em>, a
          measure of pattern recurrence.</p>
-      <p>Recurrence is genuine and persistent, and it predicts returns: a trajectory-space kernel ridge strategy earns
-         annualized gross long&ndash;short alphas of roughly 9&ndash;15% across standard factor models. Charged at
-         stock-level effective spreads, however, net alpha is indistinguishable from zero &mdash; the predictability is
-         real but lives inside the no-arbitrage band transaction costs create. Transplanted with a fully frozen
-         specification to fourteen international markets, the long&ndash;short return is positive in every market.</p>
+      <p>Recurrence is genuine and persistent &mdash; the in-sample/out-of-sample PDR correlation is 0.308 one year
+         apart and still 0.270 three years apart, while a random-walk placebo produces a correlation roughly thirty
+         times smaller &mdash; and it predicts returns: a trajectory-space kernel ridge strategy earns annualized gross
+         long&ndash;short alphas of roughly 9&ndash;15% across standard factor models. Charged at stock-level effective
+         spreads, however, net alpha is indistinguishable from zero &mdash; the predictability is real but lives inside
+         the no-arbitrage band transaction costs create. Transplanted with a fully frozen specification to twelve
+         international markets, the raw equal-weighted long&ndash;short return is positive in every market.</p>
       <div class="auth">with C. Wei Li</div>
       <div class="conf">FMA Annual Meeting 2026 (scheduled) &middot; Silicon Prairie Finance Conference 2026 &middot; University of Iowa Finance Brown Bag Seminar 2024</div>
     </div>
@@ -103,35 +106,32 @@
          setting with broker-level HFT identifiers, we exploit the introduction of ASX-ITCH &mdash; a high-speed
          order-level market data feed &mdash; as plausibly exogenous variation in HFT presence. As HFT activity rises,
          firms experience sizable declines in investment and equity issuance, concentrated among firms that rely more
-         heavily on external equity financing. An alternative identification based on the staggered global rollout of
-         exchange co-location services gives consistent evidence.</p>
+         heavily on external equity financing. The staggered global rollout of exchange
+         co-location services provides corroborating evidence.</p>
       <div class="auth">with Wesley Deng, Bo Hu, and Amy Kwan</div>
       <div class="conf">Monash Winter Finance Conference 2026 (scheduled) &middot; FMA 2025 New Idea Session &middot; Chinese University of Hong Kong &middot; George Mason University</div>
     </div>
 
-    <div class="cell paper">
+    <div class="cell wide">
       <div class="label">Work in Progress</div>
       <h3>The Protestant Ethic and the Principal-Agent Relation</h3>
-      <p>Evidence from CEO employment agreements. We use large language models to extract and analyze CEO employment
-         contracts from SEC filings for S&amp;P 1500 firms, and find that firms headquartered in counties with higher
-         Protestant adherence are less likely to use explicit CEO employment contracts &mdash; consistent with a
-         cultural emphasis on situational judgment and implicit commitments over formal, codified agreements.</p>
+      <p>Evidence from CEO employment agreements. Using large language models to read exhibit filings on EDGAR, we
+         assemble 6,373 explicit CEO employment contracts &mdash; 4,660 of them fixed-term agreements &mdash; covering
+         3,468 CEOs at 2,068 Execucomp firms from 2005 to 2022, to our knowledge the most comprehensive such sample
+         assembled to date.</p>
+      <p>Firms headquartered in counties with higher Protestant adherence are markedly less likely to use fixed-term
+         agreements, and agreements written there are not merely rarer but thinner on two alternative measures of
+         contractual explicitness. The effect is denominational rather than devotional: total religious adherence
+         carries no explanatory power, while Catholic adherence enters with the opposite sign.</p>
       <div class="auth">with C. Wei Li, Yuxuan Li, and Yiming Qian</div>
       <div class="conf">Eastern Finance Association Annual Meeting 2025</div>
-    </div>
-
-    <div class="cell paper">
-      <div class="label">Work in Progress</div>
-      <h3>Slow Risk, Fast Noise</h3>
-      <p>The frequency structure of market risk in the cross-section of returns. Decomposing market exposure across
-         frequencies to separate slow-moving risk from high-frequency noise, and asking which component is priced.</p>
-      <div class="auth">with Wei Li</div>
     </div>
 
     <div class="cell wide" style="border-color:var(--line2)">
       <div class="label">Computing</div>
       <p>I fine-tune and distill open-weight LLMs (QLoRA) on a self-built three-GPU workstation with 88&nbsp;GB of
-         VRAM &mdash; all training and inference run locally. Python, SAS, Stata, and R.</p>
+         VRAM &mdash; all training and inference run locally, used to classify over one million SEC filings and to
+         compute billion-scale trajectory-distance matrices. Python, SAS, Stata, R, and CLI coding agents.</p>
     </div>
 
     <div class="cell contact">
