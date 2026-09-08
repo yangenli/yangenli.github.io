@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Code · Yangen Li</title>
+<meta name="description" content="Open-source research code by Yangen Li — QLoRA fine-tuning pipelines for measuring economic constructs from text at corpus scale." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="grid">
+
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="code.html" class="active">Code</a>
+      <span class="spacer"></span>
+      <a class="ext" href="Yangen_Li_CV.pdf">CV&nbsp;(PDF)</a>
+    </nav>
+
+    <div class="cell intro">
+      <div class="who">
+        <div class="avatar" aria-hidden="true">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <g fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M36 30 L16 50 L36 70"/>
+              <path d="M64 30 L84 50 L64 70"/>
+              <line x1="56" y1="24" x2="44" y2="76"/>
+            </g>
+          </svg>
+        </div>
+        <div><h1>Code</h1>
+          <div class="role">Yangen Li · Ph.D. Candidate in Finance</div>
+          <div class="where">Tippie College of Business, University of Iowa</div>
+          <span class="badge">Open-source research infrastructure</span></div>
+      </div>
+    </div>
+
+    <div class="cell wide">
+      <div class="label">Why this is here</div>
+      <p>Turning millions of documents into a variable used to be data collection. It is now a modeling decision,
+         and it changes what a paper finds.</p>
+      <p>A keyword screen is not a measurement. What it misses never enters the sample, and nothing tells you what
+         was lost. A commercial API reads the documents far better, but at corpus scale it is expensive, it cannot
+         touch licensed data, and it is revised mid-project &mdash; score the same documents twice, months apart,
+         and the two runs no longer agree.</p>
+      <p>So I distill instead. Label tens of thousands of documents carefully, fine-tune an open-weight model on
+         those labels, then run it locally over everything. What comes out is fixed: it does not change under you,
+         it costs nothing per document once trained, and the data never leaves the machine.</p>
+      <p>I publish the pipelines so the measurement behind a paper can be checked and rebuilt, not taken on
+         trust.</p>
+    </div>
+
+    <div class="cell repo">
+      <div class="label">Repository</div>
+      <div class="top">
+        <div>
+          <h3>llm-finetuning &mdash; QLoRA for structured document classification</h3>
+          <p>The full working pipeline behind the executive-contract measurement in my SEC-filings project: fine-tune
+             Qwen3-14B to read a document and emit a structured JSON record, then run it over a corpus of millions on
+             consumer GPUs. Training, LoRA merging, AWQ quantization, resumable multi-GPU corpus inference, and
+             evaluation that scores every runtime on byte-identical held-out documents.</p>
+          <p>Code only &mdash; no data, labels, corpus, or model weights. The README documents the whole procedure
+             end to end, including which base model to pull from Hugging Face, the schema your own labeled data
+             needs to be in, and the failure modes that cost me the most time.</p>
+        </div>
+        <a class="btn" href="https://github.com/yangenli/llm-finetuning">
+          <svg viewBox="0 0 24 24"><path d="M12 1.8a10.2 10.2 0 0 0-3.23 19.88c.51.1.7-.22.7-.49l-.01-1.9c-2.84.62-3.44-1.2-3.44-1.2-.47-1.18-1.13-1.5-1.13-1.5-.93-.63.07-.62.07-.62 1.02.07 1.56 1.05 1.56 1.05.91 1.56 2.39 1.11 2.97.85.09-.66.36-1.11.64-1.37-2.27-.26-4.66-1.14-4.66-5.05 0-1.12.4-2.03 1.05-2.74-.1-.26-.46-1.3.1-2.7 0 0 .86-.27 2.8 1.04a9.7 9.7 0 0 1 5.1 0c1.94-1.31 2.8-1.04 2.8-1.04.56 1.4.2 2.44.1 2.7.66.71 1.05 1.62 1.05 2.74 0 3.92-2.39 4.78-4.67 5.04.37.32.69.94.69 1.9l-.01 2.82c0 .27.18.6.7.49A10.2 10.2 0 0 0 12 1.8z"/></svg>
+          View on GitHub
+        </a>
+      </div>
+      <div class="tags">
+        <span class="chip hot">QLoRA</span>
+        <span class="chip hot">Qwen3-14B</span>
+        <span class="chip">PEFT + TRL</span>
+        <span class="chip">vLLM</span>
+        <span class="chip">AWQ W4A16</span>
+        <span class="chip">llama.cpp</span>
+        <span class="chip">MIT</span>
+      </div>
+<pre class="code"><span class="c"># 1. pull the base model from Hugging Face</span>
+hf download Qwen/Qwen3-14B --local-dir models/Qwen3-14B
+
+<span class="c"># 2. fine-tune on your own labeled parquet (SMOKE=1 to test the loop first)</span>
+MODEL_PATH=models/Qwen3-14B DATA_PATH=data/labeled.parquet \
+  python finetune_qwen_contracts.py
+
+<span class="c"># 3. run it over the corpus — resumable, one process per GPU</span>
+python infer_vllm.py --years 2005-2012</pre>
+    </div>
+
+    <div class="cell hw">
+      <div class="label">Hardware you need</div>
+      <ul class="tiers">
+        <li><div class="n">12&ndash;16 GB</div>
+            <div class="d">Serve a 14B model at Q4_K_M or Q6_K. Fine-tune at the 8B scale.</div></li>
+        <li><div class="n">24 GB</div>
+            <div class="d">Fine-tune 14B on short documents. Serve 14B up to Q8_0, or 32B at Q4_K_M.</div></li>
+        <li><div class="n">32 GB and up</div>
+            <div class="d">Fine-tune 14B on long documents, or 32B at batch&nbsp;1.</div></li>
+      </ul>
+
+      <h4>Model weights in VRAM</h4>
+      <table class="vram">
+        <tr><th>Model</th><th>bf16 / f16</th><th>Q8_0</th><th>Q6_K</th><th>Q4_K_M / NF4</th></tr>
+        <tr><td>Qwen3-14B</td><td>28 GB</td><td>15 GB</td><td>11 GB</td><td>8.5 GB</td></tr>
+        <tr><td>Qwen3-32B</td><td>66 GB</td><td>35 GB</td><td>27 GB</td><td>20 GB</td></tr>
+      </table>
+
+      <p class="note">Weights only &mdash; add 1&ndash;3&nbsp;GB for the KV cache, more with large batches or long
+         context. Below Q4 the savings are small and the accuracy cost is not.</p>
+      <p class="note"><b>Fine-tuning</b> adds optimizer state and activations on top of the 4-bit weights: a QLoRA run
+         on 14B peaks near 20&nbsp;GB at 768-token sequences, and near 24&nbsp;GB at 2,300 tokens with the batch
+         halved; 32B peaks near 26&nbsp;GB at batch&nbsp;1. Sequence length moves this more than model size does, so
+         halve the batch before reaching for a bigger card.</p>
+      <p class="note"><b>More than one card</b> scales inference, not training: the inference scripts run one process
+         per GPU over disjoint slices of the corpus rather than sharding a single model, so a second card roughly
+         halves wall-clock time and needs no extra configuration.</p>
+    </div>
+
+    <div class="cell steps">
+      <div class="label">The pipeline in four steps</div>
+      <ol>
+        <li><div class="n">01</div><div class="t">Label</div>
+            <div class="d">Stratified sample labeled under the exact prompt the model will be served with.</div></li>
+        <li><div class="n">02</div><div class="t">Fine-tune</div>
+            <div class="d">QLoRA on a 4-bit base; the held-out split is frozen before training starts.</div></li>
+        <li><div class="n">03</div><div class="t">Serve</div>
+            <div class="d">Merge the adapter, quantize to W4A16, run on vLLM with prefix caching.</div></li>
+        <li><div class="n">04</div><div class="t">Evaluate</div>
+            <div class="d">Every runtime scored on identical documents, so quantization cost is visible.</div></li>
+      </ol>
+    </div>
+
+    <div class="cell contact">
+      <a class="cv" href="Yangen_Li_CV.pdf">CV (PDF)</a>
+      <a class="cv ghost" href="index.html">Home</a>
+      <a class="cv ghost" href="research.html">Research</a>
+      <a class="cv ghost" href="teaching.html">Teaching</a>
+      <a class="icon-btn" href="mailto:yangen-li@uiowa.edu" title="Email" aria-label="Email">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg>
+      </a>
+      <a class="icon-btn" href="https://github.com/yangenli" title="GitHub" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.8a10.2 10.2 0 0 0-3.23 19.88c.51.1.7-.22.7-.49l-.01-1.9c-2.84.62-3.44-1.2-3.44-1.2-.47-1.18-1.13-1.5-1.13-1.5-.93-.63.07-.62.07-.62 1.02.07 1.56 1.05 1.56 1.05.91 1.56 2.39 1.11 2.97.85.09-.66.36-1.11.64-1.37-2.27-.26-4.66-1.14-4.66-5.05 0-1.12.4-2.03 1.05-2.74-.1-.26-.46-1.3.1-2.7 0 0 .86-.27 2.8 1.04a9.7 9.7 0 0 1 5.1 0c1.94-1.31 2.8-1.04 2.8-1.04.56 1.4.2 2.44.1 2.7.66.71 1.05 1.62 1.05 2.74 0 3.92-2.39 4.78-4.67 5.04.37.32.69.94.69 1.9l-.01 2.82c0 .27.18.6.7.49A10.2 10.2 0 0 0 12 1.8z"/></svg>
+      </a>
+    </div>
+    <div class="foot">&copy; <span id="y"></span> Yangen Li · University of Iowa</div>
+  </div>
+  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+</body>
+</html>
