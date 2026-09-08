@@ -141,21 +141,16 @@
     <div class="cell wide">
       <div class="label">Methods Paper</div>
       <h3>Building a Contract Dataset with a Fine-Tuned Language Model, and What a Commercial Database Measures</h3>
-      <p>I fine-tune an open-weight 14-billion-parameter language model on 20,000 machine-labeled SEC exhibits and
-         use it to read the EDGAR exhibit record from 2005 through June 2026. That is 1.38 million documents,
-         classified on three consumer GPUs. What fine-tuning buys is precision. On held-out documents the tuned
-         model reaches an F<sub>1</sub> of 0.978, against 0.919 for the best prompt I found, and it makes 27 false
-         positives where prompting makes 140. But a classifier that reads documents well does not by itself give a
-         correct dataset. I propose a way to check one: draw stratified samples, judge them against an independent
-         source, read every case twice, and plant control cases whose answer is known. On 410 cases, almost none of
-         the remaining error came from misreading documents. It came from the code that decides which person and
-         which year a document belongs to.</p>
-      <p>The same check, applied to the leading commercial database, shows that its employment-agreement flag and
-         mine do not measure the same thing. Among CEOs it never credits with an agreement, 21.8 percent have a
-         formal employment agreement on file. And when the document is an offer letter, the vendor calls it an
-         agreement only 57.7 percent of the time. Firms must file an executed contract, but they choose how to
-         describe it. A measure built from filings sees the document. A measure built from proxy statements sees
-         the description.</p>
+      <p>This paper asks how to turn a million SEC filings into a dataset a researcher can trust. I fine-tune an
+         open language model to read every exhibit filed since 2005 and say which ones are CEO employment
+         contracts. Fine-tuning buys precision: the tuned model makes far fewer false calls than the best prompt.
+         But a model that reads well is not yet a correct dataset. The mistakes that remain come from the code
+         that links each document to a person and a year, not from reading.</p>
+      <p>So I propose a simple audit. Draw a sample, check it against an independent source, read every case
+         twice, and plant cases whose answer is known. Applied to the leading commercial database, the same audit
+         shows that its contract flag measures something different. Firms must file the contract, but they choose
+         how to describe it. A measure built from filings sees the document. A measure built from proxy statements
+         sees the description.</p>
       <div class="auth">solo-authored</div>
       <div class="conf"><a href="papers/Li_ContractDataset_Methods.pdf">Paper (PDF)</a> &middot; <a href="https://github.com/yangenli/llm-finetuning">Code on GitHub</a> &middot; <a href="code.html">Code page</a></div>
     </div>
