@@ -66,7 +66,7 @@
          repurposed, at modest cost, to reach fraud that enforcement itself never surfaces, and they caution that
          detection models should be judged by validation outside the very label on which they were trained.</p>
       <div class="auth">with C. Wei Li, Yuxuan Li, and Anand M. Vijh</div>
-      <div class="conf">University of Iowa Finance Brown Bag Seminar 2026</div>
+      <div class="conf"><a href="papers/Li_FutureProvesPast.pdf">Paper (PDF)</a> &middot; University of Iowa Finance Brown Bag Seminar 2026</div>
     </div>
 
     <div class="cell wide">
@@ -91,7 +91,7 @@
          equal-weighted long&ndash;short return is positive in eleven of the twelve markets and a global
          country-average portfolio earns a significant alpha.</p>
       <div class="auth">with C. Wei Li</div>
-      <div class="conf">FMA Annual Meeting 2026 (scheduled) &middot; Silicon Prairie Finance Conference 2026 &middot; University of Iowa Finance Brown Bag Seminar 2024</div>
+      <div class="conf"><a href="papers/Li_HistoryRhymes.pdf">Paper (PDF)</a> &middot; FMA Annual Meeting 2026 (scheduled) &middot; Silicon Prairie Finance Conference 2026 &middot; University of Iowa Finance Brown Bag Seminar 2024</div>
     </div>
 
     <div class="cell wide">
@@ -129,7 +129,7 @@
          enters positively and significantly, so the two traditions are associated with contractual formality of
          opposite sign.</p>
       <div class="auth">with C. Wei Li, Yuxuan Li, and Yiming Qian</div>
-      <div class="conf">Eastern Finance Association Annual Meeting 2025</div>
+      <div class="conf"><a href="papers/Li_ProtestantEthic.pdf">Paper (PDF)</a> &middot; Eastern Finance Association Annual Meeting 2025</div>
     </div>
 
     <div class="cell wide">
@@ -144,7 +144,25 @@
          show that financial market innovations can alter firms&rsquo; financing capacity and investment decisions,
          providing a channel through which financial market structure may influence aggregate economic growth.</p>
       <div class="auth">with Wesley Deng, Bo Hu, and Amy Kwan</div>
-      <div class="conf">Monash Winter Finance Conference 2026 (scheduled) &middot; FMA 2025 New Idea Session &middot; Chinese University of Hong Kong &middot; George Mason University</div>
+      <div class="conf"><a href="papers/Li_HFT_Milliseconds.pdf">Paper (PDF)</a> &middot; Monash Winter Finance Conference 2026 (scheduled) &middot; FMA 2025 New Idea Session &middot; Chinese University of Hong Kong &middot; George Mason University</div>
+    </div>
+
+    <div class="cell wide">
+      <div class="label">Methods Paper</div>
+      <h3>Building a Contract Dataset with a Fine-Tuned Language Model, and What a Commercial Database Measures</h3>
+      <p>I fine-tune an open-weight language model on machine-labeled SEC exhibits and use it to read the entire
+         EDGAR exhibit record since 2005 on consumer GPUs. Fine-tuning buys precision: the tuned model makes far
+         fewer false positives than the best prompt. But a classifier that reads documents well does not by itself
+         give a correct dataset, so I propose a way to check one: draw stratified samples, judge them against an
+         independent source, read every case twice, and plant control cases whose answer is known. Almost none of
+         the remaining error came from misreading documents; it came from the code that decides which person and
+         which year a document belongs to.</p>
+      <p>The same check, applied to the leading commercial database, shows that its employment-agreement flag and
+         mine do not measure the same thing. Firms must file an executed contract, but they choose how to describe
+         it. A measure built from filings sees the document; a measure built from proxy statements sees the
+         description.</p>
+      <div class="auth">solo-authored</div>
+      <div class="conf"><a href="papers/Li_ContractDataset_Methods.pdf">Paper (PDF)</a> &middot; <a href="https://github.com/yangenli/llm-finetuning">Code on GitHub</a> &middot; <a href="code.html">Code page</a></div>
     </div>
 
     <div class="cell wide" style="border-color:var(--line2)">
