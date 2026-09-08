@@ -56,12 +56,12 @@
       <p>We address both with a <em>future-proves-past</em> design. Because accounting distortions eventually reverse,
          future accounting outcomes modestly refine the training signal into soft labels; we train a convolutional
          neural network on multi-year accounting panels with these labels and validate it entirely outside the
-         enforcement set. The model preserves SEC-labeled detection performance. Out of sample over 2000&ndash;2019,
+         enforcement set. The model gives up little SEC-labeled detection performance. Out of sample over 2000&ndash;2019,
          flagged firms complete seasoned equity offerings at nearly three times the base rate and earn large negative
          post-issuance abnormal returns, a long&ndash;short portfolio earns significant factor-adjusted alpha, and
          externally screened populations (post-scrutiny Arthur Andersen clients and bank-monitored borrowers) are
          systematically avoided. An identically specified network trained on the enforcement label, and benchmarks
-         designed to predict it, reproduce none of this profile beyond a size-controlled tilt away from bank borrowers:
+         designed to predict it, reproduce little of this profile beyond a size-controlled tilt away from bank borrowers:
          the training target drives the difference. The results show that selective enforcement data can be
          repurposed, at modest cost, to reach fraud that enforcement itself never surfaces, and they caution that
          detection models should be judged by validation outside the very label on which they were trained.</p>
@@ -72,24 +72,21 @@
     <div class="cell wide">
       <div class="label">Working Paper</div>
       <h3>Listening to History Rhymes: Pattern Recurrence and Return Predictability in Stock Markets</h3>
-      <p>We propose a complementary empirical representation of stock returns: rather than treating the firm&ndash;date
-         panel as the primitive object of analysis, we embed rolling 60-day daily-return segments of U.S. equities from
-         1970 to 2025 &mdash; approximately 1.32 million segments &mdash; into a geometric space of standardized
-         trajectories, extending the exhaustive pairwise-comparison principle of the <em>Matrix Profile</em> to the full
-         cross-section. Comparing each segment&rsquo;s nearest neighbors in real data with those in a bootstrap random
-         walk benchmark, we construct the <em>Pattern Distance Ratio</em> (PDR), a measure of pattern recurrence.</p>
-      <p>Recurrence is genuine and persistent: the correlation between in-sample and out-of-sample PDR is 0.308 one year
-         apart, decays only to 0.270 three years apart, is positive in every year, and rises to 0.486 as the comparison
-         sample lengthens, while a random walk placebo produces a correlation roughly thirty times smaller. Recurrence
-         also predicts returns: strongly recurring segments carry more reliable predictive signals, and a
-         trajectory-space kernel ridge strategy earns annualized gross long&ndash;short alphas of roughly 5% to 8%
-         across the CAPM and Fama&ndash;French three- through six-factor models that remain significant in the most
-         recent subperiods. The strategy turns over four-fifths of each leg every month, so its alpha is exhausted by a
-         one-way trading cost of about 16 basis points, and its gross return tracks the estimated cost of trading it
-         over five decades: the predictability is genuine but lives inside the no-arbitrage band that transaction costs
-         create. Transplanted with a fully frozen specification to twelve international markets, the raw
-         equal-weighted long&ndash;short return is positive in eleven of the twelve markets and a global
-         country-average portfolio earns a significant alpha.</p>
+      <p>Studies of price patterns have always had to say in advance which patterns to look for. We let the data
+         say instead. We cut the daily return history of U.S. equities from 1970 to 2025 into roughly 1.32 million
+         overlapping 60-day segments, standardize each one, and compare it against every other. A segment recurs
+         when the real data are more crowded around it than a matched random-walk benchmark would imply, and the
+         ratio of the two &mdash; the <em>Pattern Distance Ratio</em> (PDR) &mdash; turns recurrence into a continuous
+         property of a return path that can be measured and tested.</p>
+      <p>Recurrence is genuine and persistent: a segment&rsquo;s PDR in one year predicts its PDR in the next at a
+         correlation of 0.308, still 0.270 three years out, and positive in every year of the sample, against 0.011
+         for a random-walk placebo. Recurrence also predicts returns. Segments that recur strongly carry more
+         reliable directional forecasts, and a kernel ridge strategy built in trajectory space earns gross
+         long&ndash;short alphas of roughly 6% to 9.5% per year against the CAPM and the Fama&ndash;French three- to
+         six-factor models. The alphas hold in the most recent subperiods, and technical rules and standard
+         predictors do not account for them. Deployed on twelve international markets with every design choice
+         frozen at its U.S. value, the strategy earns a positive raw equal-weighted spread in all twelve, and a
+         global country-average portfolio earns a significant alpha.</p>
       <div class="auth">with C. Wei Li</div>
       <div class="conf"><a href="papers/Li_HistoryRhymes.pdf">Paper (PDF)</a> &middot; FMA Annual Meeting 2026 (scheduled) &middot; Silicon Prairie Finance Conference 2026 &middot; University of Iowa Finance Brown Bag Seminar 2024</div>
     </div>
@@ -127,7 +124,8 @@
          agreements written in more Protestant counties are not merely rarer but thinner. The effect is denominational
          rather than devotional: total religious adherence carries no explanatory power, whereas Catholic adherence
          enters positively and significantly, so the two traditions are associated with contractual formality of
-         opposite sign.</p>
+         opposite sign. Extending the analysis to forced CEO turnover yields directionally consistent but
+         statistically insignificant evidence of greater board forbearance.</p>
       <div class="auth">with C. Wei Li, Yuxuan Li, and Yiming Qian</div>
       <div class="conf"><a href="papers/Li_ProtestantEthic.pdf">Paper (PDF)</a> &middot; Eastern Finance Association Annual Meeting 2025</div>
     </div>
@@ -150,17 +148,21 @@
     <div class="cell wide">
       <div class="label">Methods Paper</div>
       <h3>Building a Contract Dataset with a Fine-Tuned Language Model, and What a Commercial Database Measures</h3>
-      <p>I fine-tune an open-weight language model on machine-labeled SEC exhibits and use it to read the entire
-         EDGAR exhibit record since 2005 on consumer GPUs. Fine-tuning buys precision: the tuned model makes far
-         fewer false positives than the best prompt. But a classifier that reads documents well does not by itself
-         give a correct dataset, so I propose a way to check one: draw stratified samples, judge them against an
-         independent source, read every case twice, and plant control cases whose answer is known. Almost none of
-         the remaining error came from misreading documents; it came from the code that decides which person and
+      <p>I fine-tune an open-weight 14-billion-parameter language model on 20,000 machine-labeled SEC exhibits and
+         use it to read the EDGAR exhibit record from 2005 through June 2026. That is 1.38 million documents,
+         classified on three consumer GPUs. What fine-tuning buys is precision. On held-out documents the tuned
+         model reaches an F<sub>1</sub> of 0.978, against 0.919 for the best prompt I found, and it makes 27 false
+         positives where prompting makes 140. But a classifier that reads documents well does not by itself give a
+         correct dataset. I propose a way to check one: draw stratified samples, judge them against an independent
+         source, read every case twice, and plant control cases whose answer is known. On 410 cases, almost none of
+         the remaining error came from misreading documents. It came from the code that decides which person and
          which year a document belongs to.</p>
       <p>The same check, applied to the leading commercial database, shows that its employment-agreement flag and
-         mine do not measure the same thing. Firms must file an executed contract, but they choose how to describe
-         it. A measure built from filings sees the document; a measure built from proxy statements sees the
-         description.</p>
+         mine do not measure the same thing. Among CEOs it never credits with an agreement, 21.8 percent have a
+         formal employment agreement on file. And when the document is an offer letter, the vendor calls it an
+         agreement only 57.7 percent of the time. Firms must file an executed contract, but they choose how to
+         describe it. A measure built from filings sees the document. A measure built from proxy statements sees
+         the description.</p>
       <div class="auth">solo-authored</div>
       <div class="conf"><a href="papers/Li_ContractDataset_Methods.pdf">Paper (PDF)</a> &middot; <a href="https://github.com/yangenli/llm-finetuning">Code on GitHub</a> &middot; <a href="code.html">Code page</a></div>
     </div>
