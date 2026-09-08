@@ -49,22 +49,22 @@
     <div class="cell jmp">
       <div class="label">Job Market Paper</div>
       <h3>Future Proves Past: Detecting Hidden Fraud under Imperfect Enforcement Labels</h3>
-      <p>SEC enforcement labels are selective and incomplete proxies for the latent fraud they are meant to measure.
-         This mismatch creates two problems: a model trained on them may learn the enforcement process rather than the
-         fraud process, and accuracy measured against them cannot reveal whether a model detects the fraud enforcement
-         misses.</p>
-      <p>We address both with a <em>future-proves-past</em> design. Because accounting distortions eventually reverse,
-         future accounting outcomes modestly refine the training signal into soft labels; we train a convolutional
-         neural network on multi-year accounting panels with these labels and validate it entirely outside the
-         enforcement set. The model gives up little SEC-labeled detection performance. Out of sample over 2000&ndash;2019,
-         flagged firms complete seasoned equity offerings at nearly three times the base rate and earn large negative
-         post-issuance abnormal returns, a long&ndash;short portfolio earns significant factor-adjusted alpha, and
-         externally screened populations (post-scrutiny Arthur Andersen clients and bank-monitored borrowers) are
-         systematically avoided. An identically specified network trained on the enforcement label, and benchmarks
-         designed to predict it, reproduce little of this profile beyond a size-controlled tilt away from bank borrowers:
-         the training target drives the difference. The results show that selective enforcement data can be
-         repurposed, at modest cost, to reach fraud that enforcement itself never surfaces, and they caution that
-         detection models should be judged by validation outside the very label on which they were trained.</p>
+      <p>This paper asks whether SEC enforcement records can be used to find the fraud they never record. The
+         occurrence and detection of fraud, while related, are not identical. Thus, a model trained on enforcement
+         labels alone learns from a target shaped by the enforcement selection process and, by design, is not fully
+         oriented toward identifying firms that commit fraud. Consequently, when a model correctly flags a firm the
+         SEC never charged, standard accuracy counts it as a mistake.</p>
+      <p>Our solution starts from an economic idea: fraud borrows from the future. Accounting distortions tend to
+         unwind, so manipulation often leaves traces in later accounting outcomes. Future outcomes do not prove
+         fraud, so we use them only to adjust the training labels slightly. The method needs only a weak signal that
+         improves the labels across a large sample. Because that signal comes from accounting outcomes rather than
+         from more enforcement data, it also removes part of the SEC&rsquo;s selection from what the model learns.</p>
+      <p>We train one model on these adjusted labels and an identical model on the raw enforcement labels, and test
+         both only on firms the SEC never charged. Firms flagged by the adjusted model behave like hidden
+         manipulators: they issue equity far more often, underperform for years afterward, and fewer of them have
+         passed a bank&rsquo;s due diligence. The model trained on raw enforcement labels alone shows little of the
+         above pattern. The difference comes from the training target, not the model. Our approach shows that
+         enforcement data can be supplemented to identify potential fraud that enforcement itself never detects.</p>
       <div class="auth">with C. Wei Li, Yuxuan Li, and Anand M. Vijh</div>
       <div class="conf"><a href="papers/Li_FutureProvesPast.pdf">Paper (PDF)</a> &middot; University of Iowa Finance Brown Bag Seminar 2026</div>
     </div>
@@ -72,21 +72,13 @@
     <div class="cell wide">
       <div class="label">Working Paper</div>
       <h3>Listening to History Rhymes: Pattern Recurrence and Return Predictability in Stock Markets</h3>
-      <p>Studies of price patterns have always had to say in advance which patterns to look for. We let the data
-         say instead. We cut the daily return history of U.S. equities from 1970 to 2025 into roughly 1.32 million
-         overlapping 60-day segments, standardize each one, and compare it against every other. A segment recurs
-         when the real data are more crowded around it than a matched random-walk benchmark would imply, and the
-         ratio of the two &mdash; the <em>Pattern Distance Ratio</em> (PDR) &mdash; turns recurrence into a continuous
-         property of a return path that can be measured and tested.</p>
-      <p>Recurrence is genuine and persistent: a segment&rsquo;s PDR in one year predicts its PDR in the next at a
-         correlation of 0.308, still 0.270 three years out, and positive in every year of the sample, against 0.011
-         for a random-walk placebo. Recurrence also predicts returns. Segments that recur strongly carry more
-         reliable directional forecasts, and a kernel ridge strategy built in trajectory space earns gross
-         long&ndash;short alphas of roughly 6% to 9.5% per year against the CAPM and the Fama&ndash;French three- to
-         six-factor models. The alphas hold in the most recent subperiods, and technical rules and standard
-         predictors do not account for them. Deployed on twelve international markets with every design choice
-         frozen at its U.S. value, the strategy earns a positive raw equal-weighted spread in all twelve, and a
-         global country-average portfolio earns a significant alpha.</p>
+      <p>This paper asks whether the shape of a stock&rsquo;s recent return path repeats and predicts returns. We
+         treat every recent return path of U.S. stocks over five decades as a shape, without naming any pattern in
+         advance, and we measure how often each shape recurs relative to what a random walk would produce.</p>
+      <p>Recurrence is real and persistent across decades and countries. A strategy that trades on it earns sizable
+         gross alpha after standard factors, but trading costs are large enough that no one can profit from it. The
+         predictability is real, but it lives where trading does not pay. The paper is about how prices form, not
+         about a trading rule.</p>
       <div class="auth">with C. Wei Li</div>
       <div class="conf"><a href="papers/Li_HistoryRhymes.pdf">Paper (PDF)</a> &middot; FMA Annual Meeting 2026 (scheduled) &middot; Silicon Prairie Finance Conference 2026 &middot; University of Iowa Finance Brown Bag Seminar 2024</div>
     </div>
@@ -127,14 +119,13 @@
     <div class="cell wide">
       <div class="label">Working Paper</div>
       <h3>When &ldquo;Milliseconds&rdquo; Matter: The Real Effects of High-Frequency Trading</h3>
-      <p>This paper examines how high-frequency trading affects corporate investment and financing. Using a unique
-         Australian setting with broker-level HFT identifiers, we exploit the introduction of ASX-ITCH, a high-speed
-         order-level market data feed that increased the speed of trading information, as plausibly exogenous variation
-         in HFT presence. As HFT activity rises, firms experience a sizable decline in investment and equity issuance.
-         These effects are concentrated among firms that rely more heavily on external equity financing. We find
-         corroborating evidence in the staggered global rollout of exchange co-location services. Overall, the findings
-         show that financial market innovations can alter firms&rsquo; financing capacity and investment decisions,
-         providing a channel through which financial market structure may influence aggregate economic growth.</p>
+      <p>This paper asks whether high-frequency trading affects firms&rsquo; investment and financing. Fast trading is
+         hard to observe and moves with the fundamentals that drive investment. We therefore use Australian
+         order-level data that identify fast traders directly and exploit an exchange upgrade that sped them up but
+         left slower participants largely unaffected.</p>
+      <p>Firms more exposed to fast trading then invest less and issue less equity, their cost of equity rises, and
+         liquidity does not improve. The evidence points to a financing-cost channel: market design can have real
+         effects.</p>
       <div class="auth">with Wesley Deng, Bo Hu, and Amy Kwan</div>
       <div class="conf"><a href="papers/Li_HFT_Milliseconds.pdf">Paper (PDF)</a> &middot; Monash Winter Finance Conference 2026 (scheduled) &middot; FMA 2025 New Idea Session &middot; Chinese University of Hong Kong &middot; George Mason University</div>
     </div>
