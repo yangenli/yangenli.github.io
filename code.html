@@ -41,16 +41,17 @@
 
     <div class="cell wide">
       <div class="label">Why this is here</div>
-      <p>Turning millions of documents into a variable used to be data collection. It is now a modeling decision,
-         and it changes what a paper finds.</p>
-      <p>A keyword screen is not a measurement. What it misses never enters the sample, and nothing tells you what
-         was lost. A commercial API reads the documents far better, but at corpus scale it is expensive, it cannot
-         touch licensed data, and it is revised mid-project &mdash; score the same documents twice, months apart,
-         and the two runs no longer agree.</p>
-      <p>So I distill instead. Label tens of thousands of documents carefully, fine-tune an open-weight model on
-         those labels, then run it locally over everything. What comes out is fixed: it does not change under you,
-         it costs nothing per document once trained, and the data never leaves the machine.</p>
-      <p>I publish the pipelines so the measurement behind a paper can be checked and rebuilt, not taken on
+      <p>Many of my papers begin by turning millions of documents into a variable. This step used to be routine
+         data collection. It is now a modeling choice, and the choice changes what a paper finds.</p>
+      <p>The common shortcuts have problems. A keyword search misses documents, and nothing tells you what it
+         missed. A commercial model reads documents well, but at the scale of millions of documents it is
+         expensive, it cannot be used on licensed data, and it changes over time. Score the same documents months
+         apart and the answers no longer agree.</p>
+      <p>My approach is simple. I build a labeled set of tens of thousands of documents and check it carefully. I
+         fine-tune an open model on those labels. Then I run the model on my own machine over every document. The
+         result is fixed: it does not change under you, it costs nothing per document once trained, and the data
+         never leave the machine.</p>
+      <p>I publish the code so that the measurement behind a paper can be checked and rebuilt, not taken on
          trust.</p>
     </div>
 
